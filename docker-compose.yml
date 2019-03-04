@@ -1,13 +1,13 @@
 version: "3"
 services:
-    boxmetrics-cli:
-        image: "boxmetrics-cli:dev"
+    boxmetrics:
+        image: "boxmetrics:dev"
         build:
             context: .
             dockerfile: Dockerfile
-        hostname: boxmetrics-cli
+        hostname: boxmetrics
         stdin_open: true
         tty: true
-        working_dir: '/boxmetrics-cli-dev'
+        working_dir: '/boxmetrics-dev'
         volumes:
-            - ".:/boxmetrics-cli-dev"
+            - ".:/boxmetrics-dev"

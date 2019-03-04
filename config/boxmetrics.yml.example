@@ -1,19 +1,19 @@
 ### Boxmetrics CLI Configuration Settings
 ---
 
-boxmetrics-cli:
+boxmetrics:
 
 ### Toggle application level debug (does not toggle framework debugging)
 # debug: false
 
 ### Where external (third-party) plugins are loaded from
-# plugin_dir: /var/lib/boxmetrics-cli/plugins/
+# plugin_dir: /var/lib/boxmetrics/plugins/
 
 ### Where all plugin configurations are loaded from
-# plugin_config_dir: /etc/boxmetrics-cli/plugins.d/
+# plugin_config_dir: /etc/boxmetrics/plugins.d/
 
 ### Where external templates are loaded from
-# template_dir: /var/lib/boxmetrics-cli/templates/
+# template_dir: /var/lib/boxmetrics/templates/
 
 ### The log handler label
 # log_handler: colorlog

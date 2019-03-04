@@ -5,15 +5,15 @@ from .core.exc import BoxmetricsError
 from .controllers.base import Base
 
 # configuration defaults
-CONFIG = init_defaults('boxmetrics-cli')
-CONFIG['boxmetrics-cli']['foo'] = 'bar'
+CONFIG = init_defaults('boxmetrics')
+CONFIG['boxmetrics']['foo'] = 'bar'
 
 
 class Boxmetrics(App):
     """Boxmetrics CLI primary application."""
 
     class Meta:
-        label = 'boxmetrics-cli'
+        label = 'boxmetrics'
 
         # configuration defaults
         config_defaults = CONFIG
@@ -50,7 +50,7 @@ class BoxmetricsTest(TestApp,Boxmetrics):
     """A sub-class of Boxmetrics that is better suited for testing."""
 
     class Meta:
-        label = 'boxmetrics-cli'
+        label = 'boxmetrics'
 
 
 def main():

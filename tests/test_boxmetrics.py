@@ -1,15 +1,15 @@
 
 from pytest import raises
-from boxmetrics-cli.main import BoxmetricsTest
+from boxmetrics.main import BoxmetricsTest
 
-def test_boxmetrics-cli():
-    # test boxmetrics-cli without any subcommands or arguments
+def test_boxmetrics():
+    # test boxmetrics without any subcommands or arguments
     with BoxmetricsTest() as app:
         app.run()
         assert app.exit_code == 0
 
 
-def test_boxmetrics-cli_debug():
+def test_boxmetrics_debug():
     # test that debug mode is functional
     argv = ['--debug']
     with BoxmetricsTest(argv=argv) as app:

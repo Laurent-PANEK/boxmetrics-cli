@@ -1,7 +1,7 @@
 
-from boxmetrics-cli.main import BoxmetricsTest
+from boxmetrics.main import BoxmetricsTest
 
-def test_boxmetrics-cli(tmp):
+def test_boxmetrics(tmp):
     with BoxmetricsTest() as app:
         res = app.run()
         print(res)

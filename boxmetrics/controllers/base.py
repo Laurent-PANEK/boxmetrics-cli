@@ -17,9 +17,9 @@ class Base(Controller):
         description = 'CLI for Boxmetrics Application'
 
         # text displayed at the bottom of --help output
-        epilog = 'Usage: boxmetrics-cli command1 --foo bar'
+        epilog = 'Usage: boxmetrics command1 --foo bar'
 
-        # controller level arguments. ex: 'boxmetrics-cli --version'
+        # controller level arguments. ex: 'boxmetrics --version'
         arguments = [
             ### add a version banner
             ( [ '-v', '--version' ],
@@ -37,7 +37,7 @@ class Base(Controller):
     @ex(
         help='example sub command1',
 
-        # sub-command level arguments. ex: 'boxmetrics-cli command1 --foo bar'
+        # sub-command level arguments. ex: 'boxmetrics command1 --foo bar'
         arguments=[
             ### add a sample foo option under subcommand namespace
             ( [ '-f', '--foo' ],

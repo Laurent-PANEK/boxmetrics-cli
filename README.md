@@ -24,9 +24,9 @@ $ make virtualenv
 $ source env/bin/activate
 
 
-### run boxmetrics-cli cli application
+### run boxmetrics cli application
 
-$ boxmetrics-cli --help
+$ boxmetrics --help
 
 
 ### run pytest / coverage
@@ -65,5 +65,5 @@ and can be built with the included `make` helper:
 ```
 $ make docker
 
-$ docker run -it boxmetrics-cli --help
+$ docker run -it boxmetrics --help
 ```

@@ -1,6 +1,5 @@
-
 from setuptools import setup, find_packages
-from boxmetrics-cli.core.version import get_version
+from boxmetrics.core.version import get_version
 
 VERSION = get_version()
 
@@ -9,7 +8,7 @@ LONG_DESCRIPTION = f.read()
 f.close()
 
 setup(
-    name='boxmetrics-cli',
+    name='boxmetrics',
     version=VERSION,
     description='CLI for Boxmetrics Application',
     long_description=LONG_DESCRIPTION,
@@ -19,10 +18,10 @@ setup(
     url='https://github.com/Laurent-PANEK/boxmetrics-cli',
     license='MIT',
     packages=find_packages(exclude=['ez_setup', 'tests*']),
-    package_data={'boxmetrics-cli': ['templates/*']},
+    package_data={'boxmetrics': ['templates/*']},
     include_package_data=True,
     entry_points="""
         [console_scripts]
-        boxmetrics-cli = boxmetrics-cli.main:main
+        boxmetrics = boxmetrics.main:main
     """,
 )
