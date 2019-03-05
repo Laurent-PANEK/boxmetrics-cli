@@ -1,7 +1,7 @@
 from cement.utils.version import get_version as cement_get_version
 import re
 
-__version__ = "0.0.1-alpha.1"
+__version__ = "0.0.1-alpha.0"
 
 
 def parse_version(version):
