@@ -2,6 +2,9 @@
 
 pytest
 pytest-cov
+pylint
+mypy
+black
 coverage
 bump2version
 twine>=1.11.0

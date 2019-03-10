@@ -12,6 +12,15 @@ $ pip install setup.py
 
 This project includes a number of helpers in the `Makefile` to streamline common development tasks.
 
+Linter :
+
+- pylint
+- mypy
+
+Code formatter :
+
+- black
+
 ### Environment Setup
 
 The following demonstrates setting up and working with a development environment:
@@ -33,7 +42,6 @@ $ boxmetrics --help
 
 $ make test
 ```
-
 
 ### Releasing to PyPi
 
