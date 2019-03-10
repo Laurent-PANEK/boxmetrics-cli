@@ -25,7 +25,7 @@ Code formatter :
 
 The following demonstrates setting up and working with a development environment:
 
-```
+```text
 ### create a virtualenv for development
 
 $ make virtualenv
@@ -49,7 +49,7 @@ Before releasing to PyPi, you must configure your login credentials:
 
 **~/.pypirc**:
 
-```
+```text
 [pypi]
 username = YOUR_USERNAME
 password = YOUR_PASSWORD
@@ -57,8 +57,12 @@ password = YOUR_PASSWORD
 
 Then use the included helper function via the `Makefile`:
 
-```
+```text
+### build binaries files
+
 $ make dist
+
+### upload to Pypi
 
 $ make dist-upload
 ```
@@ -70,7 +74,10 @@ $ make dist-upload
 Included is a basic `Dockerfile` for building and distributing `Boxmetrics CLI`,
 and can be built with the included `make` helper:
 
-```
+```text
+
+### build docker image
+
 $ make docker
 
 $ docker run -it boxmetrics --help
