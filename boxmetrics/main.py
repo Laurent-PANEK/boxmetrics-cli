@@ -2,6 +2,7 @@ from cement import App, TestApp, init_defaults
 from cement.core.exc import CaughtSignal
 from .core.exc import BoxmetricsError
 from .controllers.base import Base
+from .controllers.install import Install
 
 # configuration defaults
 CONFIG = init_defaults("boxmetrics")
@@ -36,7 +37,7 @@ class Boxmetrics(App):
         output_handler = "jinja2"
 
         # register handlers
-        handlers = [Base]
+        handlers = [Base, Install]
 
 
 class BoxmetricsTest(TestApp, Boxmetrics):
