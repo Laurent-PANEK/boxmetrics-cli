@@ -4,6 +4,7 @@ from .core.exc import BoxmetricsError
 from .controllers.base import Base
 from .controllers.info.base import Info
 from .controllers.info.system import System
+from .controllers.info.cpu import CPU
 
 # configuration defaults
 CONFIG = init_defaults("boxmetrics")
@@ -38,7 +39,7 @@ class Boxmetrics(App):
         output_handler = "json"
 
         # register handlers
-        handlers = [Base, Info, System]
+        handlers = [Base, Info, System, CPU]
 
 
 class BoxmetricsTest(TestApp, Boxmetrics):
