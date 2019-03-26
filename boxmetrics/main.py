@@ -21,7 +21,7 @@ class Boxmetrics(App):
         close_on_exit = True
 
         # load additional framework extensions
-        extensions = ["yaml", "colorlog", "jinja2"]
+        extensions = ["yaml", "colorlog", "json"]
 
         # configuration handler
         config_handler = "yaml"
@@ -33,7 +33,7 @@ class Boxmetrics(App):
         log_handler = "colorlog"
 
         # set the output handler
-        output_handler = "jinja2"
+        output_handler = "json"
 
         # register handlers
         handlers = [Base]
