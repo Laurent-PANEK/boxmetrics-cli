@@ -2,6 +2,8 @@ from cement import App, TestApp, init_defaults
 from cement.core.exc import CaughtSignal
 from .core.exc import BoxmetricsError
 from .controllers.base import Base
+from .controllers.info.base import Info
+from .controllers.info.system import System
 
 # configuration defaults
 CONFIG = init_defaults("boxmetrics")
@@ -36,7 +38,7 @@ class Boxmetrics(App):
         output_handler = "json"
 
         # register handlers
-        handlers = [Base]
+        handlers = [Base, Info, System]
 
 
 class BoxmetricsTest(TestApp, Boxmetrics):
