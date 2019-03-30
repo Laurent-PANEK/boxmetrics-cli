@@ -14,15 +14,10 @@ class Memory(Controller):
 
         self.app.render(infoMemory.all())
 
-    @ex(
-        help="get virtual memory info",
-    )
+    @ex(help="get virtual memory info")
     def virtual(self):
         self.app.render(infoMemory.virtual_memory())
 
-    @ex(
-        help="get swap memory info"
-    )
+    @ex(help="get swap memory info")
     def swap(self):
-        self.app.log.info("swap memory")
         self.app.render(infoMemory.swap_memory())
