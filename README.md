@@ -2,7 +2,10 @@
 
 ## Installation
 
-```
+```text
+
+# install with pip
+
 $ pip install -r requirements.txt
 
 $ pip install setup.py
