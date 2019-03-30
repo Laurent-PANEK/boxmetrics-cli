@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
-from boxmetrics.core.version import get_version
+from boxmetrics.core.version import get_normalize_version
 
-VERSION = get_version()
+VERSION = get_normalize_version()
 
 f = open("README.md", "r")
 LONG_DESCRIPTION = f.read()
