@@ -28,7 +28,6 @@ class System(Controller):
         ],
     )
     def time(self):
-        self.app.log.info("boot time")
         if self.app.pargs.format:
             self.app.render(infoSys.boot_time())
         elif self.app.pargs.timestamp:
