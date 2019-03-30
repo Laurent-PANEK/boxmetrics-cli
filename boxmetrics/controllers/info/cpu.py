@@ -9,10 +9,17 @@ class CPU(Controller):
         stacked_type = "nested"
         description = "Get CPU info"
 
+        arguments = [
+            (
+                ["-D", "--details"],
+                {"help": "enable per cpu details", "action": "store_true"},
+            )
+        ]
+
     def _default(self):
         """Default action if no sub-command is passed."""
 
-        self.app.render(infoCPU.all())
+        self.app.render(infoCPU.all(self.app.pargs.details))
 
     @ex(
         help="get cpu usage",
@@ -24,7 +31,6 @@ class CPU(Controller):
         ],
     )
     def percent(self):
-        self.app.log.info("cpu usage")
         self.app.render(infoCPU.percent(self.app.pargs.details))
 
     @ex(
