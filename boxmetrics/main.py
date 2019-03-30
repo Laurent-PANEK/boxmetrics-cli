@@ -6,6 +6,7 @@ from .controllers.info.base import Info
 from .controllers.info.system import System
 from .controllers.info.cpu import CPU
 from .controllers.info.memory import Memory
+from .controllers.info.disks import Disks
 
 # configuration defaults
 CONFIG = init_defaults("boxmetrics")
@@ -40,7 +41,7 @@ class Boxmetrics(App):
         output_handler = "json"
 
         # register handlers
-        handlers = [Base, Info, System, CPU, Memory]
+        handlers = [Base, Info, System, CPU, Memory, Disks]
 
 
 class BoxmetricsTest(TestApp, Boxmetrics):
