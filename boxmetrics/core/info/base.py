@@ -8,10 +8,10 @@ class Info(object):
     def _format(self, dictItem, is_speed=False):
         for info, data in dictItem.items():
             if is_speed:
-                dictItem[info] = self.__convert_bytes_per_second(data)
+                dictItem[info] = self._convert_bytes_per_second(data)
             else:
                 if info != "percent":
-                    dictItem[info] = self.__convert_bytes(data)
+                    dictItem[info] = self._convert_bytes(data)
         return dictItem
 
     def _format_date(self, timestamp):
