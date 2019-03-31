@@ -1,5 +1,5 @@
 from cement import App, Controller, ex
-from boxmetrics.core.info.disks import InfoDisksInst as infoDisks
+from boxmetrics.core.info.disks import DisksInst as infoDisks
 
 
 class Disks(Controller):

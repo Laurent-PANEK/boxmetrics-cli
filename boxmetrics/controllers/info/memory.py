@@ -1,5 +1,5 @@
 from cement import App, Controller, ex
-from boxmetrics.core.info.memory import InfoMemoryInst as infoMemory
+from boxmetrics.core.info.memory import MemoryInst as infoMemory
 
 
 class Memory(Controller):

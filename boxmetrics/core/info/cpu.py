@@ -1,9 +1,10 @@
 import psutil
+from .base import Info
 
 
-class InfoCPU(object):
+class CPU(Info):
     def __init__(self, *args):
-        super(InfoCPU, self).__init__(*args)
+        super(CPU, self).__init__(*args)
 
     def percent(self, details):
         cpu = psutil.cpu_percent(percpu=details)
@@ -39,4 +40,4 @@ class InfoCPU(object):
         return dict(percent=percent, frequence=freq, count=count, stats=stats)
 
 
-InfoCPUInst = InfoCPU()
+CPUInst = CPU()
