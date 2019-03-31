@@ -21,3 +21,7 @@ class Network(Controller):
     @ex(help="get network config")
     def config(self):
         self.app.render(infoNetwork.config())
+
+    @ex(help="get socket connections")
+    def connections(self):
+        self.app.render(infoNetwork.conns())

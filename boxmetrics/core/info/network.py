@@ -2,17 +2,24 @@ import psutil
 import time
 import re
 import copy
-import socket
+from socket import AF_INET, AF_INET6, SOCK_STREAM, SOCK_DGRAM
 from .base import Info
 
 
 class Network(Info):
-    af_map = {socket.AF_INET: "IPv4", socket.AF_INET6: "IPv6", psutil.AF_LINK: "MAC"}
+    af_map = {AF_INET: "IPv4", AF_INET6: "IPv6", psutil.AF_LINK: "MAC"}
 
     duplex_map = {
         psutil.NIC_DUPLEX_FULL: "full",
         psutil.NIC_DUPLEX_HALF: "half",
         psutil.NIC_DUPLEX_UNKNOWN: "?",
+    }
+
+    proto_map = {
+        (AF_INET, SOCK_STREAM): "tcp",
+        (AF_INET6, SOCK_STREAM): "tcp6",
+        (AF_INET, SOCK_DGRAM): "udp",
+        (AF_INET6, SOCK_DGRAM): "udp6",
     }
 
     def __init__(self, *args):
@@ -38,10 +45,34 @@ class Network(Info):
         stats = self.__get_netstats(1)
         return self.__format_netstats(stats)
 
+    def conns(self):
+        sockets = psutil.net_connections("all")
+
+        for i, con in enumerate(sockets):
+            sockets[i] = con._asdict()
+            del sockets[i]["fd"]
+            sockets[i]["proto"] = Network.proto_map[
+                (sockets[i]["family"], sockets[i]["type"])
+            ]
+            del sockets[i]["family"]
+            del sockets[i]["type"]
+            sockets[i]["laddr"] = dict(
+                addr=sockets[i]["laddr"][0], port=sockets[i]["laddr"][1]
+            )
+            try:
+                sockets[i]["raddr"] = dict(
+                    addr=sockets[i]["raddr"][0], port=sockets[i]["raddr"][1]
+                )
+            except:
+                sockets[i]["raddr"] = dict()
+
+        return sockets
+
     def all(self):
         stats = self.stats()
         config = self.config()
-        return dict(config=config, stats=stats)
+        conns = self.conns()
+        return dict(config=config, stats=stats, connections=conns)
 
     def __get_netstats(self, interval):
         tot_before = psutil.net_io_counters()
