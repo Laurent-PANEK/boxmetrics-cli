@@ -8,6 +8,15 @@ class Processes(Info):
         super(Processes, self).__init__(*args)
 
     def all(self, filters: Dict = None) -> List[Dict]:
+        """
+        Return all processes informations
+        
+        :param filters: conditions that return processess must have, defaults to None
+        :param filters: Dict, optional
+        :return: List of processes
+        :rtype: List[Dict]
+        """
+
         processes = list()
         attrs = [
             "pid",
