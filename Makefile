@@ -1,7 +1,19 @@
-.PHONY: clean virtualenv test docker dist dist-upload
+.PHONY: clean install virtualenv test docker dist dist-upload
 
 clean:
 	find . -name '*.py[co]' -delete
+
+install:
+	virtualenv --prompt '|> boxmetrics <| ' env
+	env/bin/pip install -r requirements.txt
+	env/bin/python setup.py install
+	@echo
+	@echo "VirtualENV Setup Complete. Now run: source env/bin/activate"
+	@echo "Usage: "
+	@echo "boxmetrics -h"
+	@echo "boxmetrics info -h"
+	@echo "boxmetrics info system -h"
+	@echo 
 
 virtualenv:
 	virtualenv --prompt '|> boxmetrics <| ' env

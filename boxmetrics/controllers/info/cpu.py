@@ -1,5 +1,5 @@
 from cement import App, Controller, ex
-from boxmetrics.core.info.cpu import InfoCPUInst as infoCPU
+from boxmetrics.core.info.cpu import CPUInst as infoCPU
 
 
 class CPU(Controller):

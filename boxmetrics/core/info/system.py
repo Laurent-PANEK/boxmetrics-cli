@@ -1,16 +1,16 @@
 import psutil
-import datetime
+from .base import Info
 
 
-class InfoSystem(object):
+class System(Info):
     def __init__(self, *args):
-        super(InfoSystem, self).__init__(*args)
+        super(System, self).__init__(*args)
 
     def boot_timestamp(self):
         return psutil.boot_time()
 
     def boot_time(self):
-        return self.__format_date(self.boot_timestamp())
+        return self._format_date(self.boot_timestamp())
 
     def time(self):
         return dict(format=self.boot_time(), timestamp=self.boot_timestamp())
@@ -21,7 +21,7 @@ class InfoSystem(object):
             users[i] = user._asdict()
             users_started = users[i]["started"]
             users[i]["started"] = dict(
-                format=self.__format_date(users_started), timestamp=users_started
+                format=self._format_date(users_started), timestamp=users_started
             )
 
         return users
@@ -29,8 +29,5 @@ class InfoSystem(object):
     def all(self):
         return dict(users=self.log_users(), time=self.time())
 
-    def __format_date(self, timestamp):
-        return datetime.datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
 
-
-InfoSystemInst = InfoSystem()
+SystemInst = System()

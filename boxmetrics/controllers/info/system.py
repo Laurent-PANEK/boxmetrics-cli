@@ -1,5 +1,5 @@
 from cement import App, Controller, ex
-from boxmetrics.core.info.system import InfoSystemInst as infoSys
+from boxmetrics.core.info.system import SystemInst as infoSys
 
 
 class System(Controller):
