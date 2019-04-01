@@ -2,9 +2,9 @@ import psutil
 from .base import Info
 
 
-class Sensor(Info):
+class Sensors(Info):
     def __init__(self, *args):
-        super(Sensor, self).__init__(*args)
+        super(Sensors, self).__init__(*args)
 
     def temp(self):
         if psutil.WINDOWS:
@@ -56,4 +56,4 @@ class Sensor(Info):
         return dict(temperature=temp, fans=fans, battery=battery)
 
 
-SensorInst = Sensor()
+SensorsInst = Sensors()

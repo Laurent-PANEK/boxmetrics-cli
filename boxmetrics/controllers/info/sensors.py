@@ -1,27 +1,27 @@
 from cement import App, Controller, ex
-from boxmetrics.core.info.sensor import SensorInst as infoSensor
+from boxmetrics.core.info.sensors import SensorsInst as infoSensors
 
 
-class Sensor(Controller):
+class Sensors(Controller):
     class Meta:
-        label = "sensor"
+        label = "sensors"
         stacked_on = "info"
         stacked_type = "nested"
-        description = "Get sensor info"
+        description = "Get sensors info"
 
     def _default(self):
         """Default action if no sub-command is passed."""
 
-        self.app.render(infoSensor.all())
+        self.app.render(infoSensors.all())
 
     @ex(help="get hardware temperature")
     def temperature(self):
-        self.app.render(infoSensor.temp())
+        self.app.render(infoSensors.temp())
 
     @ex(help="get fans info")
     def fans(self):
-        self.app.render(infoSensor.fans())
+        self.app.render(infoSensors.fans())
 
     @ex(help="get battery info")
     def battery(self):
-        self.app.render(infoSensor.battery())
+        self.app.render(infoSensors.battery())
