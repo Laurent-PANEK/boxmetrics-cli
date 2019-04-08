@@ -41,6 +41,7 @@ class Processes(Info):
     def _is_display(self, data: Dict, filters: Dict = None) -> bool:
         if filters is None:
             return True
+            
         for f, v in filters.items():
             if data[f] != v:
                 return False
