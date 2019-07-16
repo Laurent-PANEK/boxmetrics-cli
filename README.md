@@ -1,5 +1,7 @@
 # CLI for Boxmetrics Application
 
+   Replaced by boxmetrics agent 👉 https://github.com/boxmetrics/boxmetrics-agent
+
 ## Installation
 
 ```text
