@@ -1,6 +1,6 @@
 # CLI for Boxmetrics Application
 
-   Replaced by boxmetrics agent 👉 https://github.com/boxmetrics/boxmetrics-agent
+ > This repo is not maintain anymore and had been replaced by new boxmetrics cli write in go 👉 <https://github.com/boxmetrics/boxmetrics-cli>
 
 ## Installation
 
