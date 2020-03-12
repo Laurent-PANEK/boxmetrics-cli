@@ -1,4 +1,4 @@
-psutil==5.6.1
+psutil==5.6.6
 cement==3.0.2
 jinja2
 pyyaml
